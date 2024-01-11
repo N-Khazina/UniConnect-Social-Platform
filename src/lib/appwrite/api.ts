@@ -13,7 +13,7 @@ export async function createUserAccount(user: INewUser) {
     const newAccount = await account.create(
       ID.unique(),
       user.email,
-      user.password, 
+      user.password,
       user.name
     );
 
@@ -225,7 +225,7 @@ export async function searchPosts(searchTerm: string) {
 }
 
 export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
-  const queries: any= [Query.orderDesc("$updatedAt"), Query.limit(9)];
+  const queries = [Query.orderDesc("$updatedAt"), Query.limit(9)];
 
   if (pageParam) {
     queries.push(Query.cursorAfter(pageParam.toString()));
@@ -449,7 +449,7 @@ export async function getRecentPosts() {
 
 // ============================== GET USERS
 export async function getUsers(limit?: number) {
-  const queries: any[] = [Query.orderDesc("$createdAt")];
+  const queries = [Query.orderDesc("$createdAt")];
 
   if (limit) {
     queries.push(Query.limit(limit));
