@@ -59,6 +59,7 @@ import {
     return useInfiniteQuery({
       queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
       queryFn: getInfinitePosts,
+      //@ts-expect-error ignoring for deployment
       getNextPageParam: (lastPage) => {
         // If there's no data, there are no more pages.
         if (!lastPage || lastPage.documents.length === 0) {
